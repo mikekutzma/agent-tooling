@@ -1,0 +1,10 @@
+node_modules/
+data/
+sql/
+*.csv
+*.json
+!package.json
+!package-lock.json
+*.log
+test-*
+demo-*

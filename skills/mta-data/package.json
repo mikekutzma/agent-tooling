@@ -1,0 +1,15 @@
+{
+  "name": "mta-data-skill",
+  "version": "1.0.0",
+  "description": "MTA Open Data skill for Pi coding agent",
+  "type": "module",
+  "scripts": {
+    "search": "tsx scripts/search-datasets.ts",
+    "download": "tsx scripts/download-dataset.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.0"
+  }
+}
