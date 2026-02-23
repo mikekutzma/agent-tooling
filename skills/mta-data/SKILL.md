@@ -40,24 +40,36 @@ The skill will automatically check if DuckDB is installed when attempting to ana
 Install dependencies (first time only):
 
 ```bash
-cd /path/to/mta-data/skill
+cd /Users/mike/.claude/skills/mta-data
 npm install
 ```
 
 This installs TypeScript support and required packages.
 
+## Working Directory
+
+**IMPORTANT**: Scripts must always write files to the user's current working directory, not the skill directory. To ensure this:
+
+1. Always use the **full absolute path** to the script when invoking it (e.g., `/Users/mike/.claude/skills/mta-data/scripts/download-dataset.ts`)
+2. Always pass **`--output-dir <USER_CWD>/data`** to download scripts
+3. Always pass **`--sql-dir <USER_CWD>/sql`** to analyze scripts
+
+The user's current working directory is provided in the environment context at the start of every conversation (the "Primary working directory"). Use that absolute path when constructing these flags.
+
+Example: if the user's working directory is `/Users/alice/my-project`, all download commands must include `--output-dir /Users/alice/my-project/data` and all analysis commands must include `--sql-dir /Users/alice/my-project/sql`.
+
 ## Data Storage
 
-Downloaded datasets are saved to `./data/` by default. This directory is automatically created when downloading data. You can specify a different directory with the `--output-dir` option.
+Downloaded datasets are saved to `<USER_CWD>/data/` (passed explicitly via `--output-dir`). This directory is automatically created when downloading data.
 
 ## SQL Query Storage
 
-All SQL queries run during analysis are automatically saved to `./sql/` directory with timestamps. This provides:
+All SQL queries run during analysis are automatically saved to `<USER_CWD>/sql/` (passed explicitly via `--sql-dir`) with timestamps. This provides:
 - **Reproducibility**: Every query is saved for future reference
 - **Transparency**: Users can see exactly what SQL was run
 - **Reusability**: Queries can be rerun with the provided DuckDB command
 
-Each query is saved with a timestamp filename (e.g., `query_2024-02-22_14-30-45.sql`). You can specify a different directory with the `--sql-dir` option.
+Each query is saved with a timestamp filename (e.g., `query_2024-02-22_14-30-45.sql`).
 
 ## Searching for Datasets
 
