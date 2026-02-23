@@ -40,7 +40,7 @@ The skill will automatically check if DuckDB is installed when attempting to ana
 Install dependencies (first time only):
 
 ```bash
-cd /Users/mike/.claude/skills/mta-data
+cd /path/to/skills/mta-data
 npm install
 ```
 
