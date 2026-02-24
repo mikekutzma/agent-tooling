@@ -15,7 +15,7 @@ Quick symlink commands:
 ln -s $(pwd) ~/.pi/agent/skills/mta-data
 
 # For Claude Code (global)
-ln -s $(pwd) ~/.config/claude/skills/mta-data
+ln -s $(pwd) ~/.claude/skills/mta-data
 ```
 
 ## Quick Start
