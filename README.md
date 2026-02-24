@@ -33,8 +33,8 @@ pi --skill ./skills/mta-data
 
 ```bash
 # Global installation (available in all projects)
-mkdir -p ~/.config/claude/skills
-ln -s $(pwd)/skills/* ~/.config/claude/skills/
+mkdir -p ~/.claude/skills
+ln -s $(pwd)/skills/* ~/.claude/skills/
 
 # Or project-local (create .claude directory in your project)
 mkdir -p .claude/skills
