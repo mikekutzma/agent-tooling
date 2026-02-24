@@ -39,9 +39,6 @@ ln -s $(pwd)/skills/* ~/.claude/skills/
 # Or project-local (create .claude directory in your project)
 mkdir -p .claude/skills
 ln -s $(pwd)/skills/* .claude/skills/
-
-# Or use temporarily with --skill flag
-claude --skill ./skills/mta-data
 ```
 
 ### Verifying Installation
@@ -53,7 +50,7 @@ After symlinking, verify the skills are available:
 pi --list-skills
 
 # For Claude Code
-claude --list-skills
+claude -p "What skills are available?"
 ```
 
 You should see the skills from this repo listed (e.g., `mta-data`).
